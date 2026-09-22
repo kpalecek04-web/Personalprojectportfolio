@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Katie Palecek — Portfolio &amp; Notebook Journey</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Editorial Serif & Handwritten Script & Crisp Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Baloo+2:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wall: '#EFE9DC',
+            'wall-warm': '#E4DCcb',
+            'wall-deep': '#D8CEB9',
+            paper: '#FAF6F0',
+            'paper-warm': '#F3ECE0',
+            'paper-card': '#FFFDF9',
+            ink: '#23201C',
+            'ink-muted': '#5D574F',
+            'ink-light': '#8A8378',
+            terracotta: '#D05A3F',
+            'burnt-coral': '#E06D53',
+            'med-blue': '#22577A',
+            'deep-navy': '#1B263B',
+            mustard: '#DE9E36',
+            olive: '#586A4C',
+            burgundy: '#78282B',
+            stamp: '#BA3C28',
+            'wbp-navy': '#1B3A5A',
+            'wbp-olive': '#5C6E33',
+            'wbp-cream': '#F4E4C8',
+            'wbp-orange': '#E2632C',
+            'wbp-flame': '#F2A93E',
+            'wbp-green': '#6E8B3D',
+          },
+          fontFamily: {
+            serif: ['"Instrument Serif"', '"Playfair Display"', 'serif'],
+            editorial: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            hand: ['"Caveat"', 'cursive'],
+            mono: ['"Space Mono"', 'monospace'],
+            baloo: ['"Baloo 2"', 'cursive'],
+          },
+          boxShadow: {
+            'artifact': '0 8px 24px -4px rgba(35, 32, 28, 0.12), 0 2px 6px -1px rgba(35, 32, 28, 0.08)',
+            'artifact-deep': '0 16px 36px -6px rgba(35, 32, 28, 0.18), 0 4px 10px -2px rgba(35, 32, 28, 0.10)',
+            'wall-print': '0 3px 10px rgba(35, 28, 20, 0.22), 0 1px 3px rgba(35, 28, 20, 0.14)',
+            'wall-cluster': '0 6px 20px rgba(45, 32, 20, 0.28), 0 2px 6px rgba(45, 32, 20, 0.16)',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Warm natural bedroom plaster wall aesthetic matching IMG_7403 */
+    body {
+      background-color: #EFE9DC;
+      color: #23201C;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .tape {
+      background: rgba(245, 237, 218, 0.85);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      backdrop-filter: blur(1px);
+      border-left: 2px dashed rgba(210, 195, 170, 0.5);
+      border-right: 2px dashed rgba(210, 195, 170, 0.5);
+    }
+
+    .tape-light {
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      backdrop-filter: blur(1px);
+      border-left: 2px dashed rgba(255, 255, 255, 0.35);
+      border-right: 2px dashed rgba(255, 255, 255, 0.35);
+    }
+
+    .pin {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #F46036, #90260C);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.6);
+    }
+
+    .stamp-badge {
+      border: 2px dashed #BA3C28;
+      color: #BA3C28;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-10deg);
+      opacity: 0.9;
+    }
+
+    /* Sketch arrow animated stroke */
+    .sketch-dash {
+      stroke-dasharray: 5, 5;
+    }
+
+    /* Custom carousel scrollbar hiding */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Unbordered Raw Wall Print Card - mimics the flush, organic, overlapping prints of the bedroom wall photo */
+    .wall-post-card {
+      position: relative;
+      display: block;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, z-index 0s;
+      box-shadow: 0 3px 8px -1px rgba(35, 28, 20, 0.28), 0 1px 3px rgba(35, 28, 20, 0.15);
+      overflow: hidden;
+    }
+    .wall-post-card:hover {
+      transform: scale(1.04) translateY(-2px) !important;
+      z-index: 40 !important;
+      box-shadow: 0 14px 28px -4px rgba(30, 22, 14, 0.36), 0 4px 10px rgba(30, 22, 14, 0.18);
+    }
+  </style>
+</head>
+<body class="font-sans text-ink selection:bg-burnt-coral selection:text-white relative">
+<!-- TOP HEADER / COMPACT TRAVEL ARCHIVE BAR -->
+<header class="sticky top-0 z-50 bg-[#EFE9DC]/95 backdrop-blur-md border-b border-[#D8CEB9] px-4 py-2.5">
+<div class="max-w-xl mx-auto flex items-center justify-between">
+<a class="group flex items-center gap-2" href="#hero">
+<span class="font-editorial text-lg font-bold tracking-tight text-ink group-hover:text-terracotta transition-colors">Katie Palecek</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-[#E5DCB5]/60 text-ink-muted font-mono tracking-wider border border-[#DECDB8]">UARK '25</span>
+</a>
+<!-- Quick mode selector & menu trigger -->
+<div class="flex items-center gap-2">
+<a class="text-xs font-semibold px-2.5 py-1 rounded bg-deep-navy text-white shadow-sm hover:bg-med-blue transition-colors flex items-center gap-1" href="#work-carousel">
+<span class="material-symbols-outlined text-xs">view_carousel</span> Carousel
+        </a>
+<button aria-label="Toggle menu" class="p-1.5 rounded text-ink hover:bg-[#E5DCB5]/40 border border-transparent hover:border-[#DECDB8]" id="menu-toggle">
+<span class="material-symbols-outlined text-lg">menu</span>
+</button>
+</div>
+</div>
+<!-- Direct Navigation Drawer -->
+<nav class="hidden max-w-xl mx-auto pt-3 pb-2 border-t border-[#D8CEB9] mt-2" id="mobile-nav">
+<div class="flex flex-wrap items-center justify-between gap-2 text-[11px] font-bold tracking-widest text-ink-muted uppercase">
+<a class="hover:text-terracotta transition-colors" href="#hero">Wall Mosaic</a>
+<span>·</span>
+<a class="hover:text-terracotta transition-colors" href="#story">Texas &amp; Austin</a>
+<span>·</span>
+<a class="hover:text-terracotta transition-colors" href="#travel-path">Exact Route</a>
+<span>·</span>
+<a class="hover:text-terracotta transition-colors" href="#work-carousel">Projects</a>
+<span>·</span>
+<a class="hover:text-terracotta transition-colors" href="#wild-bill">WBP Deck</a>
+<span>·</span>
+<a class="hover:text-terracotta transition-colors" href="#spain">Back to Spain!</a>
+<span>·</span>
+<a class="hover:text-terracotta transition-colors" href="#now">Where Now</a>
+<span>·</span>
+<a class="text-terracotta font-extrabold hover:underline" href="#connect">Connect</a>
+</div>
+</nav>
+</header>
+<main>
+<!-- ================================================================= -->
+<!-- SECTION 1: HERO SECTION & BEDROOM POSTCARD WALL MOSAIC            -->
+<!-- One full-bleed background band; no nested "card" container.      -->
+<!-- ================================================================= -->
+<section class="pt-6 pb-12 sm:pt-10 sm:pb-16 bg-paper-warm relative" id="hero">
+<div class="max-w-xl mx-auto px-4">
+<!-- Top Handwritten Tape & Note Header -->
+<div class="flex justify-between items-center mb-6">
+<div class="tape px-3 py-1 text-xs font-hand text-ink font-bold transform -rotate-2">
+          Notebook Page 05 • Concept Sketch &amp; Wall
+        </div>
+<div class="font-mono text-[10px] text-ink-muted tracking-widest uppercase">
+          Draft #1 Visual Layout
+        </div>
+</div>
+<!-- EXACT LAYOUT FROM IMAGE_5:
+     Left: "Hi I'm Katie!" + "I love storytelling: So here's mine!"
+     Right: "Me! Headshot" photo frame -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center mb-10">
+<!-- LEFT COLUMN: Headline & Storytelling Intro -->
+<div class="sm:col-span-7 text-left">
+<span class="font-hand text-xl text-terracotta font-bold block mb-1">Hey there!</span>
+<h1 class="font-hand text-4xl sm:text-5xl font-bold tracking-tight text-ink leading-tight">
+              Hi I'm Katie!
+            </h1>
+<div class="w-12 h-1 bg-mustard my-2 rounded-full"></div>
+<div class="space-y-2 mt-2">
+<p class="font-editorial text-lg italic text-ink font-semibold leading-snug">
+                "I love storytelling: So here's mine!"
+              </p>
+<p class="font-sans text-xs text-ink-muted leading-relaxed">
+                I'm an <strong class="text-ink font-semibold">International Business</strong> student at the University of Arkansas, but a flat corporate résumé doesn't tell the real story of curiosity, grit, and hands-on experiments.
+              </p>
+</div>
+<!-- Sketch notation tag -->
+<div class="inline-flex items-center gap-1.5 mt-3 px-2 py-1 rounded bg-[#E9E0CE] text-[10px] font-mono text-ink-muted border border-[#D9CBB2]">
+<span class="w-1.5 h-1.5 rounded-full bg-olive"></span>
+              Curiosity-driven creator &amp; strategist
+            </div>
+</div>
+<!-- RIGHT COLUMN: "Me! Headshot" Frame (per sketch) -->
+<div class="sm:col-span-5 flex flex-col items-center">
+<div class="relative w-40 sm:w-44 bg-white p-2.5 pb-5 rounded-lg shadow-artifact transform rotate-2 hover:rotate-0 transition-transform duration-300 border border-[#E5D7C5]">
+<div class="pin absolute -top-2 left-1/2 -translate-x-1/2 z-20"></div>
+<!-- Photo container -->
+<div class="w-full aspect-[4/5] bg-[#EAE0D3] rounded overflow-hidden relative border border-[#DFCDB9] shadow-inner flex flex-col items-center justify-center">
+<svg class="w-full h-full object-cover" fill="none" viewbox="0 0 200 250">
+<rect fill="#E8DFD3" height="250" width="200"></rect>
+<circle cx="100" cy="82" fill="#FCEFD8" r="68"></circle>
+<path d="M100 125 C65 125, 42 150, 36 200 L164 200 C158 150, 135 125, 100 125 Z" fill="#22577A"></path>
+<circle cx="100" cy="80" fill="#F7CA9B" r="34"></circle>
+<path d="M66 75 C66 42, 134 42, 134 75 C134 98, 126 116, 126 116 C126 116, 100 122, 74 116 C74 116, 66 98, 66 75 Z" fill="#603417"></path>
+<circle cx="88" cy="78" fill="#3D200F" r="2.5"></circle>
+<circle cx="112" cy="78" fill="#3D200F" r="2.5"></circle>
+<path d="M92 90 Q100 98 108 90" stroke="#7A3912" stroke-linecap="round" stroke-width="2.5"></path>
+<polygon fill="#FFFDF9" points="100,138 86,168 114,168"></polygon>
+</svg>
+<div class="absolute bottom-1 right-1 bg-deep-navy/85 text-[8px] font-mono text-white px-1.5 py-0.5 rounded">
+                  Katie P.
+                </div>
+</div>
+<!-- Sketch Caption: "Me! Headshot" -->
+<div class="text-center mt-2">
+<span class="font-hand text-sm font-bold text-ink leading-tight block">
+                  Me! Headshot 📸
+                </span>
+<span class="font-mono text-[8px] text-ink-light block">
+                  Fayetteville • 2024
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- ================================================================= -->
+<!-- BEDROOM WALL CLUSTER MOSAIC (DIRECTLY EMBODYING IMAGE_1 WALL)      -->
+<!-- Dense, flush, vibrant organic cluster of unbordered travel prints  -->
+<!-- Sits directly on the section background, no outer card wrapper.   -->
+<!-- ================================================================= -->
+<div class="relative w-full overflow-visible py-2">
+<!-- Cluster Header Banner -->
+<div class="flex items-center justify-between mb-3 border-b border-[#DECDB8] pb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-terracotta text-base">wallpaper</span>
+<span class="font-mono text-[10px] uppercase font-bold text-ink-muted">Headboard Postcard Cluster Wall</span>
+</div>
+<span class="font-hand text-xs text-terracotta font-bold">authentic travel prints • edge-to-edge cloud</span>
+</div>
+<!-- MOBILE HERO COLLAGE - dedicated 3-element composition, not a scaled-down desktop version -->
+<div class="sm:hidden relative w-full max-w-[280px] mx-auto" style="aspect-ratio: 4 / 5;">
+<div class="wall-post-card absolute rounded-sm shadow-wall-cluster" style="top:0%; left:0%; width:72%; transform:rotate(-3deg); z-index:10;">
+<img alt="Greetings from Arkansas Vintage Card" class="w-full h-auto block" src="images/arkansas.jpg"/>
+<div class="absolute bottom-0 inset-x-0 bg-black/60 text-[8px] font-mono text-amber-200 px-1.5 py-0.5 flex justify-between">
+<span>ARKANSAS</span>
+<span>UARK '25</span>
+</div>
+</div>
+<div class="wall-post-card absolute rounded-sm shadow-wall-print" style="top:22%; left:32%; width:60%; transform:rotate(3deg); z-index:20;">
+<img alt="Barcelona Sagrada Familia Art" class="w-full h-auto block" src="images/barcelona.jpg"/>
+</div>
+<div class="absolute" style="bottom:2%; left:4%; width:26%; transform:rotate(-6deg); z-index:30;">
+<img alt="Wild Bill Pickles boot logo sticker" class="w-full h-auto block drop-shadow-[0_3px_6px_rgba(35,28,20,0.3)]" src="images/wbp-boot.png"/>
+</div>
+</div>
+<!-- FULL-PICTURE OVERLAPPING COLLAGE - each real photo shown whole, scattered and layered (desktop only) -->
+<div class="hidden sm:block relative w-full overflow-visible" style="aspect-ratio: 6 / 7;">
+<!-- Arkansas -->
+<div class="wall-post-card absolute rounded-sm shadow-wall-cluster" style="top:0%; left:0%; width:46%; transform:rotate(-4deg); z-index:10;">
+<img alt="Greetings from Arkansas Vintage Card" class="w-full h-auto block" src="images/arkansas.jpg"/>
+<div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-2xs text-[7px] font-mono text-amber-200 px-1.5 py-0.5 leading-none flex justify-between">
+<span>ARKANSAS</span>
+<span>UARK '25</span>
+</div>
+</div>
+<!-- Austin -->
+<div class="wall-post-card absolute rounded-sm shadow-wall-print" style="top:1%; left:53%; width:32%; transform:rotate(5deg); z-index:20;">
+<img alt="Austin Congress Bridge Bats Art" class="w-full h-auto block" src="images/austin.jpg"/>
+<div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-2xs text-[7px] font-mono text-amber-200 px-1.5 py-0.5 leading-none flex justify-between">
+<span>AUSTIN</span>
+<span>BATS</span>
+</div>
+</div>
+<!-- Barcelona -->
+<div class="wall-post-card absolute rounded-sm shadow-wall-cluster" style="top:24%; left:18%; width:40%; transform:rotate(-2deg); z-index:30;">
+<img alt="Barcelona Sagrada Familia Art" class="w-full h-auto block" src="images/barcelona.jpg"/>
+<div class="absolute top-1 left-1 bg-med-blue/80 text-[7px] font-mono text-white px-1.5 py-0.5 rounded-2xs">BCN</div>
+</div>
+<!-- Feria de Sevilla -->
+<div class="wall-post-card absolute rounded-sm shadow-wall-print" style="top:35%; left:60%; width:30%; transform:rotate(4deg); z-index:25;">
+<img alt="Feria de Sevilla 1961 Poster" class="w-full h-auto block" src="images/sevilla.jpg"/>
+<div class="absolute bottom-0 inset-x-0 bg-burgundy/85 text-white px-1.5 py-0.5 text-[7px] font-mono flex items-center justify-between">
+<span class="font-bold tracking-wider">SEVILLA</span>
+<span class="opacity-80">1961</span>
+</div>
+</div>
+<!-- Tuk Tuk -->
+<div class="wall-post-card absolute rounded-sm shadow-wall-print" style="top:56%; left:0%; width:30%; transform:rotate(6deg); z-index:15;">
+<img alt="Thailand Tuk Tuk Street Scene" class="w-full h-auto block" src="images/tuktuk.jpg"/>
+<div class="absolute top-1 right-1 bg-olive/80 text-[7px] font-mono text-white px-1.5 py-0.5 rounded-2xs">THAI</div>
+</div>
+<!-- Desert -->
+<div class="wall-post-card absolute rounded-sm shadow-wall-print" style="top:60%; left:29%; width:28%; transform:rotate(-6deg); z-index:35;">
+<img alt="Desert Dunes and Camel Traveler" class="w-full h-auto block" src="images/desert.jpg"/>
+<div class="absolute bottom-0 inset-x-0 bg-black/50 text-[7px] font-mono text-yellow-200 px-1.5 py-0.5">Dunes</div>
+</div>
+<!-- Tabarca -->
+<div class="wall-post-card absolute rounded-sm shadow-wall-print" style="top:62%; left:58%; width:30%; transform:rotate(8deg); z-index:40;">
+<img alt="Isla de Tabarca Coaster" class="w-full h-auto block" src="images/tabarca.jpg"/>
+</div>
+<!-- Wild Bill Pickles boot sticker - mixed in as a transparent die-cut accent, not a boxed photo -->
+<div class="absolute rounded-sm" style="top:44%; left:38%; width:20%; transform:rotate(9deg); z-index:45;">
+<img alt="Wild Bill Pickles boot logo sticker" class="w-full h-auto block drop-shadow-[0_4px_8px_rgba(35,28,20,0.35)]" src="images/wbp-boot.png"/>
+</div>
+</div>
+<!-- Note from IMAGE_5 / Notebook: "Move as scroll" indicator leading down -->
+<div class="mt-4 pt-3 border-t border-dashed border-[#D2C2AA] flex flex-col items-center text-center relative">
+<div class="flex items-center gap-2 mb-1">
+<svg class="w-7 h-7 text-terracotta animate-pulse" fill="none" viewbox="0 0 40 40">
+<path class="sketch-dash" d="M10 5 C 10 25, 25 25, 25 35" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<polyline points="18,30 25,37 32,30" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+</svg>
+<span class="font-hand text-base text-terracotta font-bold transform -rotate-2">
+        Move as scroll ↓
+      </span>
+</div>
+<div class="bg-[#E9E0CE] px-3 py-1 rounded-full border border-[#D9CBB2] text-[10px] font-mono text-ink-muted">
+      ✨ Postcards fan out along the exact travel path
+    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- SECTION 2 & 3: TEXAS & THE EXACT TRAVEL PATH (Per IMAGE_4 Sketch) -->
+<!-- One full-bleed background band; timeline flows directly on it.   -->
+<!-- ================================================================= -->
+<section class="py-12 sm:py-16 bg-[#F6E9DD] relative" id="story">
+<div class="max-w-xl mx-auto px-4">
+<!-- ============================================================= -->
+<!-- THE EXACT TRAVEL PATH ROUTE (Directly from IMAGE_4 handwritten sketch) -->
+<!-- Route: TEXAS -> Barcelona -> Thailand -> AUS/NW Z -> Ireland -> Arkansas! -->
+<!-- Flows directly on the section background - no outer boxed card.       -->
+<!-- ============================================================= -->
+<div class="relative" id="travel-path">
+<!-- Notebook Route Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 border-b border-[#E3CFB9] pb-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-hand text-2xl font-bold text-terracotta">Exact Fieldwork Trajectory</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/70 text-ink-muted border border-[#E3CFB9]">Page 04</span>
+</div>
+<p class="font-mono text-[10px] text-ink-muted">Drawn dashed path connecting all 5 global stops</p>
+</div>
+<!-- Note from IMAGE_4 sketch: "Show some photos from a few years ago" -->
+<div class="flex items-center gap-1.5 bg-[#FEF9C3] px-2.5 py-1.5 rounded border border-[#E8DF86] shadow-2xs">
+<span class="material-symbols-outlined text-xs text-amber-700">arrow_forward</span>
+<span class="font-hand text-xs font-bold text-ink">
+  "Show some photos from a few years ago"
+</span>
+</div>
+</div>
+<!-- Visual Flow of Route - a wandering footpath connects each stop -->
+<div class="relative space-y-8">
+<!-- Winding dashed footpath with thick rounded dots (replaces the straight connector line) -->
+<svg class="absolute inset-y-0 left-0 w-12 sm:w-16 text-terracotta/60" preserveAspectRatio="none" viewBox="0 0 48 1000">
+<path d="M24,0 C6,60 42,100 24,160 S6,260 24,320 S42,420 24,480 S6,580 24,640 S42,740 24,800 S6,900 24,960 L24,1000" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 13"></path>
+</svg>
+<!-- 1. TEXAS -->
+<div class="relative pl-12 sm:pl-16">
+<div class="absolute left-0 sm:left-1 top-0 w-10 h-10 sm:w-12 sm:h-12 bg-white p-0.5 rounded-sm shadow-md border border-dashed border-ink-light/40 transform -rotate-6 z-10">
+<img alt="Austin, Texas stamp" class="w-full h-full object-cover rounded-[2px]" src="images/austin.jpg"/>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h3 class="font-editorial text-lg font-bold text-ink">TEXAS</h3>
+<span class="text-xs px-2 py-0.5 rounded bg-terracotta/15 text-terracotta font-mono font-bold flex items-center gap-1">
+<svg class="w-3.5 h-3.5 text-terracotta fill-current inline-block" viewbox="0 0 100 100">
+<path d="M10,25 L50,25 L55,40 L90,40 L90,65 L70,95 L40,85 L35,55 L15,55 Z" stroke="currentColor" stroke-width="6"></path>
+</svg>
+Origin
+</span>
+</div>
+<span class="font-mono text-[9px] text-ink-light">Austin / Manchaca</span>
+</div>
+<p class="font-sans text-xs text-ink-muted mt-1 leading-relaxed">
+  Foundations in community commerce, local entrepreneurship, and agricultural grit.
+</p>
+</div>
+<!-- Handwritten trajectory connector 1 -> 2 -->
+<div class="pl-12 sm:pl-16 -my-4 flex items-center gap-2">
+<span class="font-hand text-xs text-terracotta font-bold">↳ crossing the Atlantic ✈</span>
+</div>
+<!-- 2. BARCELONA (FEATURING POSTCARDS: SAGRADA FAMILIA IMAGE_7 & ISLA DE TABARCA IMAGE_4) -->
+<div class="relative pl-12 sm:pl-16">
+<div class="absolute left-0 sm:left-1 top-0 w-10 h-10 sm:w-12 sm:h-12 bg-white p-0.5 rounded-sm shadow-md border border-dashed border-ink-light/40 transform rotate-4 z-10">
+<img alt="Barcelona stamp" class="w-full h-full object-cover rounded-[2px]" src="images/barcelona.jpg"/>
+</div>
+<div class="flex justify-between items-center">
+<h3 class="font-editorial text-base font-bold text-ink">Barcelona &amp; Mediterranean</h3>
+<span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-amber-100 text-amber-900">Spain</span>
+</div>
+<p class="font-sans text-xs text-ink-muted mt-1 leading-relaxed">
+  Immersed in Castilian and Catalan retail dynamics. Learned how culture dictates foot traffic, grocery cadence, and shelf choices.
+</p>
+<!-- Unbordered Prints Cluster: Sagrada Familia (IMAGE_7) & Isla de Tabarca (IMAGE_4) -->
+<div class="mt-3 grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-center">
+<div class="sm:col-span-8 wall-post-card rounded-xs shadow-wall-print">
+<div class="aspect-[16/10] overflow-hidden">
+<img alt="Sagrada Familia Night Postcard" class="w-full h-full object-cover" src="images/barcelona.jpg"/>
+</div>
+<div class="absolute bottom-1 right-1 bg-med-blue/80 text-[7px] font-mono text-white px-1.5 py-0.5 rounded">
+      Barcelona • Sagrada Família
+    </div>
+</div>
+<div class="sm:col-span-4 flex flex-col items-center">
+<div class="wall-post-card rounded-full aspect-square w-24 h-24 overflow-hidden shadow-wall-print border border-amber-900/20">
+<img alt="Isla de Tabarca Round Coastal Art" class="w-full h-full object-cover scale-105" src="images/tabarca.jpg"/>
+</div>
+<span class="text-[8px] font-mono text-ink-muted text-center mt-1">Tabarca Fieldwork</span>
+</div>
+</div>
+</div>
+<!-- 3. THAILAND (FEATURING AUTHENTIC POSTCARD: TUK TUK IMAGE_6) -->
+<div class="relative pl-12 sm:pl-16">
+<div class="absolute left-0 sm:left-1 top-0 w-10 h-10 sm:w-12 sm:h-12 bg-white p-0.5 rounded-sm shadow-md border border-dashed border-ink-light/40 transform -rotate-3 z-10">
+<img alt="Thailand stamp" class="w-full h-full object-cover rounded-[2px]" src="images/tuktuk.jpg"/>
+</div>
+<div class="flex justify-between items-center">
+<h3 class="font-editorial text-base font-bold text-ink">Thailand</h3>
+<span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-900">Southeast Asia</span>
+</div>
+<p class="font-sans text-xs text-ink-muted mt-1 leading-relaxed">
+  Field studies on community-managed farming, street vendor supply agility, and sustainable wildlife conservation economics.
+</p>
+<!-- Unbordered Tuk Tuk Print (IMAGE_6) -->
+<div class="mt-3 wall-post-card rounded-xs shadow-wall-print">
+<div class="aspect-[16/10] overflow-hidden">
+<img alt="Tuk Tuk, Thailand Authentic Artwork Postcard" class="w-full h-full object-cover" src="images/tuktuk.jpg"/>
+</div>
+<div class="p-1.5 bg-stone-900 text-white flex items-center justify-between text-[9px] font-mono">
+<span class="font-bold text-yellow-300">"TUK TUK, Thailand" Field Study</span>
+<span class="text-stone-400">Chiang Mai &amp; Bangkok Markets</span>
+</div>
+</div>
+</div>
+<!-- DESERT & CAMEL FIELD STUDY SPOTLIGHT (FEATURING IMAGE_3) -->
+<div class="relative pl-12 sm:pl-16">
+<div class="absolute left-0 sm:left-1 top-0 w-8 h-8 sm:w-10 sm:h-10 bg-white p-0.5 rounded-sm shadow-md border border-dashed border-ink-light/40 transform rotate-6 z-10">
+<img alt="Desert crossing stamp" class="w-full h-full object-cover rounded-[2px]" src="images/desert.jpg"/>
+</div>
+<div class="flex justify-between items-center">
+<h4 class="font-editorial text-sm font-bold text-ink">Desert Ecology &amp; Nomad Trade Paths</h4>
+<span class="text-[8px] font-mono px-1 py-0.5 rounded bg-amber-50 text-amber-800">Trade Study</span>
+</div>
+<div class="mt-2 wall-post-card rounded-xs shadow-wall-print">
+<div class="aspect-[16/9] overflow-hidden">
+<img alt="Desert Dunes and Camel Traveler Artwork" class="w-full h-full object-cover object-center" src="images/desert.jpg"/>
+</div>
+<div class="p-1 bg-[#4A260F] text-amber-100 text-[8px] font-mono flex justify-between">
+<span>Warm desert dunes &amp; caravan logistics</span>
+<span class="text-amber-300 font-bold">Field Painting</span>
+</div>
+</div>
+</div>
+<!-- 4. AUS/NW Z -->
+<div class="relative pl-12 sm:pl-16">
+<div class="absolute left-0 sm:left-1 top-0 w-10 h-10 sm:w-12 sm:h-12 bg-sky-100 rounded-sm shadow-md border border-dashed border-ink-light/40 transform rotate-3 z-10 flex items-center justify-center text-lg">
+  🌊
+</div>
+<div class="flex justify-between items-center">
+<div>
+<h3 class="font-editorial text-base font-bold text-ink">AUS / NW Z</h3>
+<span class="font-hand text-xs text-med-blue font-bold">(Australia &amp; New Zealand)</span>
+</div>
+<span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-sky-100 text-sky-900">Oceania</span>
+</div>
+<p class="font-sans text-xs text-ink-muted mt-1 leading-relaxed">
+  Examining ocean resource policies, remote supply line bottlenecks, and island consumer pricing elasticity.
+</p>
+</div>
+<!-- 5. IRELAND -->
+<div class="relative pl-12 sm:pl-16">
+<div class="absolute left-0 sm:left-1 top-0 w-10 h-10 sm:w-12 sm:h-12 bg-rose-100 rounded-sm shadow-md border border-dashed border-ink-light/40 transform -rotate-4 z-10 flex items-center justify-center text-lg">
+  ☘️
+</div>
+<div class="flex justify-between items-center">
+<h3 class="font-editorial text-base font-bold text-ink">Ireland</h3>
+<span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-rose-100 text-rose-900">Dublin Hub</span>
+</div>
+<p class="font-sans text-xs text-ink-muted mt-1 leading-relaxed">
+  Corporate recruiting internship in Dublin's tech corridor. Scaled pan-European talent infrastructure and cross-border recruiting operations.
+</p>
+</div>
+<!-- 6. ARKANSAS! (FEATURING AUTHENTIC LARGE VINTAGE POSTCARD: IMAGE_5) -->
+<div class="relative pl-12 sm:pl-16 pt-2">
+<div class="absolute left-0 sm:left-1 top-2 w-10 h-10 sm:w-12 sm:h-12 bg-white p-0.5 rounded-sm shadow-md border border-dashed border-ink-light/40 transform rotate-5 z-10">
+<img alt="Arkansas stamp" class="w-full h-full object-cover rounded-[2px]" src="images/arkansas.jpg"/>
+</div>
+<div class="relative">
+<!-- Authentic Vintage Large-Letter Arkansas Postcard (IMAGE_5) - Unbordered Wall Print -->
+<div class="wall-post-card rounded-sm mb-3 shadow-wall-cluster">
+<div class="aspect-[16/10] overflow-hidden">
+<img alt="Greetings from Arkansas Large Vintage Postcard" class="w-full h-full object-cover" src="images/arkansas.jpg"/>
+</div>
+<div class="p-1.5 bg-[#1B3627] flex items-center justify-between text-[9px] font-mono text-emerald-100">
+<span class="font-bold">"GREETINGS FROM ARKANSAS"</span>
+<span class="text-emerald-300/80 font-normal">Found Image Press Custom Artifact</span>
+</div>
+</div>
+<p class="font-editorial text-lg font-bold text-ink italic leading-snug">
+  "Somehow, I ended up here."
+</p>
+<p class="font-sans text-xs text-ink-muted mt-1 leading-relaxed">
+  Sam M. Walton College of Business — where real-world international curiosity transformed into concrete corporate, retail, and venture strategy.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- SECTION 4: PROJECT TAGS & POSTCARD COLLECTION (Per IMAGE_2 Sketch) -->
+<!-- One full-bleed background band. Postcards render from the       -->
+<!-- PROJECTS data array (see script block) as a responsive grid --  -->
+<!-- no horizontal scroller, so nothing depends on hover/swipe.       -->
+<!-- ================================================================= -->
+<section class="py-12 sm:py-16 bg-[#FBF3DE] relative" id="work-carousel">
+<div class="max-w-xl mx-auto px-4">
+<!-- FILTER TABS -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-2 mb-4 no-scrollbar">
+<button class="carousel-filter px-3 py-1 text-xs rounded-full font-semibold bg-ink text-paper transition-all" data-filter="all">All</button>
+<button class="carousel-filter px-3 py-1 text-xs rounded-full font-semibold bg-paper-card text-ink-muted border border-[#DECDB8] hover:bg-paper-warm transition-all" data-filter="projects">Projects</button>
+<button class="carousel-filter px-3 py-1 text-xs rounded-full font-semibold bg-paper-card text-ink-muted border border-[#DECDB8] hover:bg-paper-warm transition-all" data-filter="orgs">Organizations</button>
+<button class="carousel-filter px-3 py-1 text-xs rounded-full font-semibold bg-paper-card text-ink-muted border border-[#DECDB8] hover:bg-paper-warm transition-all" data-filter="entre">Entrepreneurship</button>
+</div>
+<!-- POSTCARD COLLECTION - rendered from the PROJECTS data array, see inline script -->
+<div id="postcard-collection" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"></div>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- SECTION 5: WILD BILL PICKLES (Per IMAGE_3 Sketch)                 -->
+<!-- One full-bleed background band. The "slide" itself keeps its own -->
+<!-- dark styling since it represents an actual presentation slide.   -->
+<!-- ================================================================= -->
+<section class="py-12 sm:py-16 bg-wbp-cream relative" id="wild-bill">
+<div class="max-w-xl mx-auto px-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-mono px-2 py-0.5 rounded bg-wbp-olive text-white font-bold uppercase tracking-wider border-b-2 border-wbp-orange">Notebook Page 03</span>
+<span class="text-xs font-mono text-ink-muted">Slide Deck Branding</span>
+</div>
+<div class="mb-4">
+<h2 class="font-baloo text-2xl sm:text-3xl font-extrabold text-ink leading-tight">
+  Wild Bill Pickle Brand
+</h2>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-sm text-wbp-olive">slideshow</span>
+<span class="font-mono text-[11px] text-ink-muted font-semibold">
+  Deck layout &amp; brand identity showcase
+</span>
+</div>
+</div>
+<!-- EXACT STORY QUOTE FROM IMAGE_3 - simple pull-quote, not a card -->
+<blockquote class="border-l-4 border-wbp-orange pl-4 my-6">
+<p class="font-editorial text-base sm:text-lg italic text-ink leading-snug">
+  "Then I decided I needed to learn business from the ground up."
+</p>
+<span class="block text-[10px] font-mono text-ink-light mt-1">
+  — Katie Palecek • Business Developer, Student Business Incubator
+</span>
+</blockquote>
+<!-- SLIDE DECK BRANDING PRESENTATION - flows directly on section bg -->
+<div class="space-y-6">
+<!-- Slide 01: real brand lockup - navy card, cream ground, flame accents, Baloo 2 wordmark -->
+<div class="bg-wbp-cream border border-[#E6D2AC] p-5 rounded-xl relative overflow-hidden">
+<!-- Flame accent corners, sampled from the brand's orange/yellow palette -->
+<svg class="absolute -top-4 -right-4 w-24 h-24 text-wbp-orange opacity-90" fill="none" viewbox="0 0 100 100">
+<path d="M20 90 C 10 70, 30 60, 25 40 C 45 55, 55 35, 50 15 C 75 30, 85 60, 65 85 C 55 70, 40 75, 20 90 Z" fill="currentColor" stroke="#F2A93E" stroke-width="3"></path>
+</svg>
+<svg class="absolute -bottom-3 -left-3 w-16 h-16 text-wbp-orange opacity-90" fill="none" viewbox="0 0 100 100">
+<path d="M20 90 C 10 70, 30 60, 25 40 C 45 55, 55 35, 50 15 C 75 30, 85 60, 65 85 C 55 70, 40 75, 20 90 Z" fill="currentColor" stroke="#F2A93E" stroke-width="3"></path>
+</svg>
+<div class="relative flex flex-col sm:flex-row items-center gap-4 justify-center py-2">
+<!-- Navy wordmark block, mimicking the boot-cuff lockup -->
+<div class="bg-wbp-navy border-2 border-dashed border-white/70 rounded px-6 py-4 shadow-artifact-deep transform -rotate-1">
+<h3 class="font-baloo text-2xl sm:text-3xl font-extrabold text-white leading-none text-center">
+<span class="block">Wild</span><span class="block">Bill</span><span class="block">Pickles</span>
+</h3>
+</div>
+</div>
+<div class="relative flex items-center justify-between mt-3 text-[10px] font-mono text-ink-muted">
+<span>Brand Deck Slide 01 • Product Spec</span>
+<span>Small Batch • Garlic Dill Spears • 16 FL OZ</span>
+</div>
+</div>
+<!-- 3-Up Deck Slides - plain columns, divided not boxed -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 sm:divide-x sm:divide-[#E6D2AC] text-xs">
+<div class="sm:pl-4 first:sm:pl-0">
+<span class="text-[8px] font-mono text-terracotta uppercase font-bold">Slide A • Sourcing</span>
+<h4 class="font-bold text-ink mt-0.5 text-[11px]">Kirby Cucumber Farm</h4>
+<p class="text-[10px] text-ink-muted mt-1 leading-snug">
+  Negotiated weekly farm gate pick-up directly with growers within 60 miles.
+</p>
+</div>
+<div class="sm:pl-4">
+<span class="text-[8px] font-mono text-med-blue uppercase font-bold">Slide B • Glass MOQs</span>
+<h4 class="font-bold text-ink mt-0.5 text-[11px]">Packaging &amp; Safety</h4>
+<p class="text-[10px] text-ink-muted mt-1 leading-snug">
+  Custom die-cut moisture-proof label specs and hot-fill tamper-evident closures.
+</p>
+</div>
+<div class="sm:pl-4">
+<span class="text-[8px] font-mono text-olive uppercase font-bold">Slide C • Shelf Economics</span>
+<h4 class="font-bold text-ink mt-0.5 text-[11px]">Gross Margin 44%</h4>
+<p class="text-[10px] text-ink-muted mt-1 leading-snug">
+  Calculated true COGS factoring vinegar, herbs, glass, labor, and market fees.
+</p>
+</div>
+</div>
+<!-- BOTTOM SKETCH INSPIRATIONS - plain columns -->
+<div class="pt-4 border-t border-[#E6D2AC]">
+<div class="flex items-center justify-between mb-3">
+<span class="text-[10px] font-mono uppercase font-bold text-ink-light">Inspiration &amp; Roots (Page 03 Sketch)</span>
+<span class="font-hand text-xs text-terracotta font-bold">drawn in notebook</span>
+</div>
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="transform -rotate-1 hover:rotate-0 transition-transform">
+<span class="text-lg block">🍗</span>
+<span class="font-hand text-sm font-bold text-ink block mt-0.5">Chick-fil-a</span>
+<span class="text-[8px] font-mono text-ink-light">Customer service rigor</span>
+</div>
+<div class="transform rotate-1 hover:rotate-0 transition-transform">
+<span class="text-lg block">🥫</span>
+<span class="font-hand text-sm font-bold text-ink block mt-0.5">Caviar</span>
+<span class="text-[8px] font-mono text-ink-light">High-end food pairing</span>
+</div>
+<div class="transform -rotate-1 hover:rotate-0 transition-transform">
+<span class="text-lg block">🍳</span>
+<span class="font-hand text-sm font-bold text-ink block mt-0.5">Cooking</span>
+<span class="text-[8px] font-mono text-ink-light">Culinary craft &amp; taste</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- SECTION 6: BACK TO SPAIN & Arkansas (Per IMAGE_3 & IMAGE_1)       -->
+<!-- The whole section IS the gradient background now (full-bleed),   -->
+<!-- instead of a gradient card floating on a neutral section.        -->
+<!-- ================================================================= -->
+<section class="py-12 sm:py-16 bg-gradient-to-br from-[#78282B] via-[#BD4024] to-[#DE7B4D] text-white relative" id="spain">
+<div class="max-w-xl mx-auto px-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-mono px-2 py-0.5 rounded bg-white/15 text-amber-100 font-bold uppercase tracking-wider">Notebook Page 03 &amp; 01</span>
+<span class="text-xs font-mono text-white/70">The Return</span>
+</div>
+<h2 class="font-editorial text-4xl sm:text-5xl font-black text-white uppercase tracking-tight mb-2">
+  BACK TO SPAIN!
+</h2>
+<!-- EXACT SUB-BULLET FROM IMAGE_3 -->
+<div class="flex items-center gap-2 mb-6 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/20 w-fit">
+<span class="w-2 h-2 rounded-full bg-amber-200"></span>
+<span class="font-hand text-base sm:text-lg font-bold text-amber-100">
+  - More abt understanding &amp; international business
+</span>
+</div>
+<!-- Sevilla Fieldwork content - directly on the section's gradient bg -->
+<span class="text-[9px] font-mono uppercase tracking-widest text-amber-200">Field Studies • Andalucia &amp; Madrid</span>
+<p class="font-editorial text-2xl font-bold italic mt-2 leading-snug">
+  "The first time I traveled, I wanted to see the world. The second time, I wanted to understand it."
+</p>
+<p class="text-xs text-white/90 mt-2 font-sans leading-relaxed">
+  Returning to Spain was no longer about sightseeing. It was about studying agricultural cooperatives in Andalusia, retail grocery supply chains, and municipal food systems through the lens of international economics.
+</p>
+<!-- Authentic Feria de Sevilla 1961 Postcard (IMAGE_8) - Flush unbordered print aesthetic -->
+<div class="mt-5 wall-post-card rounded-lg shadow-wall-cluster">
+<div class="aspect-[16/11] overflow-hidden">
+<img alt="Feria de Sevilla 1961 Authentic Vintage Poster Postcard" class="w-full h-full object-cover" src="images/sevilla.jpg"/>
+</div>
+<div class="p-2 bg-stone-900 text-white flex items-center justify-between text-[9px] font-mono">
+<span class="font-bold text-amber-300">Feria de Sevilla • 18 al 23 de Abril 1961</span>
+<span class="text-stone-300">Andalusia Field Artifact</span>
+</div>
+</div>
+<!-- TRANSITION AS SKETCHED - directly on the gradient bg -->
+<div class="mt-8 pt-6 border-t border-white/20 flex items-center justify-between">
+<div>
+<div class="text-[9px] font-mono uppercase text-white/70">Pivot to Present Day</div>
+<div class="font-editorial text-2xl font-black text-white">
+  Where am I now? <span class="text-amber-200 italic">ARKANSAS.</span>
+</div>
+</div>
+<span class="text-2xl">📍</span>
+</div>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- SECTION 7: CURRENT WORK / WHERE AM I NOW (Per IMAGE_1 Notes)      -->
+<!-- One full-bleed background band; bullets and the 3 "extras" flow  -->
+<!-- directly on it instead of sitting in separate white boxes.       -->
+<!-- ================================================================= -->
+<section class="py-12 sm:py-16 bg-[#EAF0F5] relative" id="now">
+<div class="max-w-xl mx-auto px-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-mono px-2 py-0.5 rounded bg-deep-navy/10 text-deep-navy font-bold uppercase tracking-wider">Notebook Page 01</span>
+<span class="text-xs font-mono text-ink-muted">Current Focus &amp; Endeavors</span>
+</div>
+<h2 class="font-editorial text-3xl font-black text-ink leading-tight">
+  WHERE AM I NOW?
+</h2>
+<h3 class="font-editorial text-xl italic text-terracotta mb-6">
+  Senior Year • Sam M. Walton College of Business
+</h3>
+<!-- EXACT BULLETS TRANSCRIPTION - directly on section bg -->
+<div class="mb-10 pb-8 border-b border-[#D7E1EA]">
+<div class="flex items-center justify-between border-b border-[#D7E1EA] pb-2 mb-4">
+<span class="font-hand text-xl font-bold text-ink">Active Commitments &amp; Pursuits</span>
+<span class="font-mono text-[9px] text-ink-light">Fayetteville, AR</span>
+</div>
+<ul class="space-y-2.5 font-sans text-xs">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-xs text-olive mt-0.5">check_circle</span>
+<span class="text-ink font-medium">
+<strong class="font-semibold text-ink">Completed 10 week incubator</strong> — sharpened financial modeling and venture validation.
+</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-xs text-terracotta mt-0.5">check_circle</span>
+<span class="text-ink font-medium">
+<strong class="font-semibold text-ink">Working w/ Exp. Fay.</strong> (Experience Fayetteville / community initiatives).
+</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-xs text-med-blue mt-0.5">check_circle</span>
+<span class="text-ink font-medium">
+<strong class="font-semibold text-ink">Getting to know Develop. Ec &amp; Technology.</strong> — investigating development economics and emerging supply tools.
+</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-xs text-mustard mt-0.5">check_circle</span>
+<span class="text-ink font-medium">
+<strong class="font-semibold text-ink">Enjoying my year in my second home Fay.</strong> (Fayetteville, Arkansas community &amp; Ozark outdoors).
+</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-xs text-burgundy mt-0.5">stars</span>
+<span class="text-ink font-medium">
+<strong class="font-semibold text-ink">Pursuing career in international Innovation + strategy.</strong>
+</span>
+</li>
+</ul>
+<!-- Tags directly from notebook -->
+<div class="pt-4 mt-4 border-t border-[#D7E1EA]">
+<span class="text-[9px] font-mono uppercase font-bold text-ink-light block mb-2">Core Target Verticals (from notes):</span>
+<div class="flex flex-wrap gap-2 text-[11px] font-mono font-bold">
+<span class="px-2.5 py-1 rounded bg-white/70 text-terracotta border border-[#D7E1EA]">
+  ✦ International expansion
+</span>
+<span class="px-2.5 py-1 rounded bg-white/70 text-med-blue border border-[#D7E1EA]">
+  ✦ R&amp;D
+</span>
+<span class="px-2.5 py-1 rounded bg-white/70 text-olive border border-[#D7E1EA]">
+  ✦ Sustainable business endeavors
+</span>
+</div>
+</div>
+</div>
+<!-- EXTRAS / ORGANIZED: 3 flowing columns instead of boxed cards -->
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-hand text-lg font-bold text-terracotta">Extras / organized (3 Cards from sketch)</span>
+<span class="font-mono text-[9px] text-ink-light">Page 01 bottom grid</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 sm:divide-x sm:divide-[#D7E1EA]">
+<div class="sm:pl-4 first:sm:pl-0">
+<div class="flex items-center justify-between text-terracotta mb-1">
+<span class="material-symbols-outlined text-lg">school</span>
+<span class="text-[8px] font-mono">BOX 01</span>
+</div>
+<h4 class="font-editorial text-sm font-bold text-ink">Walton Honors Scholar</h4>
+<p class="text-[10px] text-ink-muted mt-1 leading-snug">
+  B.S.B.A. International Business &amp; Supply Chain / Economics honors thesis track.
+</p>
+</div>
+<div class="sm:pl-4">
+<div class="flex items-center justify-between text-med-blue mb-1">
+<span class="material-symbols-outlined text-lg">public</span>
+<span class="text-[8px] font-mono">BOX 02</span>
+</div>
+<h4 class="font-editorial text-sm font-bold text-ink">Global Field Experience</h4>
+<p class="text-[10px] text-ink-muted mt-1 leading-snug">
+  5 countries traversed, European talent consulting, and cross-cultural trade fluency.
+</p>
+</div>
+<div class="sm:pl-4">
+<div class="flex items-center justify-between text-olive mb-1">
+<span class="material-symbols-outlined text-lg">handshake</span>
+<span class="text-[8px] font-mono">BOX 03</span>
+</div>
+<h4 class="font-editorial text-sm font-bold text-ink">Venture &amp; CPG Execution</h4>
+<p class="text-[10px] text-ink-muted mt-1 leading-snug">
+  From Kirby cucumber farms to finished shelf product and incubator graduation.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- SECTION 8: CONNECT / CALL TO ACTION (Per IMAGE_1 Prompt)          -->
+<!-- One full-bleed closing background band.                          -->
+<!-- ================================================================= -->
+<section class="py-14 sm:py-20 bg-[#F3E4DB] relative text-center" id="connect">
+<div class="max-w-xl mx-auto px-4">
+<div class="stamp-badge w-24 h-24 mx-auto mb-4 text-[9px] font-mono">
+<div class="text-center leading-tight">
+<span class="block font-bold">FAYETTEVILLE</span>
+<span class="text-xs font-serif">2025</span>
+<span class="block text-[8px]">DISPATCH</span>
+</div>
+</div>
+<h2 class="font-hand text-4xl sm:text-5xl font-bold text-terracotta leading-none mb-2">
+  Connect, chat and talk w/ me!
+</h2>
+<p class="font-sans text-xs sm:text-sm text-ink-muted max-w-sm mx-auto leading-relaxed mb-6">
+  Whether it's international business strategy, CPG venture ideas, Spain travel stories, or economic development — <span class="text-ink font-semibold">I'd love to connect.</span>
+</p>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-2.5 max-w-xs mx-auto">
+<a class="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-deep-navy text-white font-semibold text-xs shadow-md hover:bg-med-blue transition-colors" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-sm">link</span>
+  Connect on LinkedIn
+</a>
+<a class="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-terracotta text-white font-semibold text-xs shadow-md hover:bg-burnt-coral transition-colors" href="mailto:katie.palecek@example.edu">
+<span class="material-symbols-outlined text-sm">mail</span>
+  Email Katie Directly
+</a>
+<a class="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-white text-ink border border-[#DECDB8] font-semibold text-xs shadow-sm hover:bg-paper-warm transition-colors" href="#resume">
+<span class="material-symbols-outlined text-sm">description</span>
+  Download Résumé / CV (PDF)
+</a>
+</div>
+<div class="mt-8 text-center">
+<p class="font-hand text-xl text-ink-muted">
+  "Every business begins with a handshake and a story."
+</p>
+<span class="text-[10px] font-mono text-ink-muted tracking-widest uppercase mt-1 block">
+  Fayetteville, AR • Austin, TX • Global Relocation
+</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BOTTOM FOOTER -->
+<footer class="bg-wall-warm/70 border-t border-[#D8CEB9] py-6 px-4 text-center text-[10px] font-mono text-ink-muted">
+<div class="max-w-xl mx-auto flex flex-col items-center gap-1.5">
+<div>Katie Palecek • International Innovation + Strategy • UARK '25</div>
+<div class="text-ink-muted/80">Designed faithfully after bedroom wall artifact mosaic &amp; handwritten notebook sketches • © 2025</div>
+</div>
+</footer>
+<!-- PROJECT DETAIL OVERLAY - single instance, populated from PROJECTS data by openProjectDetail() -->
+<div class="fixed inset-0 z-[100] hidden" id="project-overlay" role="dialog" aria-modal="true" aria-labelledby="pd-title">
+<div class="absolute inset-0 bg-ink/70 backdrop-blur-sm" id="pd-backdrop"></div>
+<div class="relative h-full w-full flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+<div class="wall-post-card relative w-full max-w-md bg-paper-card rounded-xl shadow-wall-cluster border-2 border-dashed border-[#DECDB8] p-5 sm:p-7 my-8">
+<button aria-label="Close project detail" class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center rounded-full bg-paper-warm border border-[#DECDB8] text-ink hover:bg-terracotta hover:text-white transition-colors" id="pd-close" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<div class="stamp-badge w-14 h-14 text-[7px] font-mono mb-3" id="pd-category-badge">Project</div>
+<h2 class="font-editorial text-2xl font-black text-ink leading-tight pr-10" id="pd-title"></h2>
+<div class="font-hand text-lg text-terracotta font-bold mt-0.5" id="pd-org"></div>
+<div class="flex flex-wrap gap-2 mt-2 text-[10px] font-mono text-ink-muted">
+<span class="px-2 py-0.5 rounded bg-paper-warm border border-[#DECDB8]" id="pd-role"></span>
+<span class="px-2 py-0.5 rounded bg-paper-warm border border-[#DECDB8]" id="pd-date"></span>
+<span class="px-2 py-0.5 rounded bg-paper-warm border border-[#DECDB8]" id="pd-location"></span>
+</div>
+<p class="font-sans text-xs text-ink-muted leading-relaxed mt-4" id="pd-description"></p>
+<div class="mt-4">
+<div class="text-[9px] font-mono uppercase font-bold text-ink-light mb-1">Outcome &amp; What I Learned</div>
+<p class="font-sans text-xs text-ink leading-relaxed" id="pd-outcome"></p>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-4" id="pd-skills"></div>
+<a class="mt-6 flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-deep-navy text-white font-semibold text-xs shadow-md hover:bg-med-blue transition-colors" href="#" id="pd-action" rel="noopener noreferrer">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+<span id="pd-action-label">View Project</span>
+</a>
+</div>
+</div>
+</div>
+<!-- CLIENT INTERACTION SCRIPT: NAV, PROJECT DATA, POSTCARD COLLECTION, DETAIL OVERLAY -->
+<script>
+    // Navigation toggle
+    const toggleBtn = document.getElementById('menu-toggle');
+    const nav = document.getElementById('mobile-nav');
+    if (toggleBtn && nav) {
+      toggleBtn.addEventListener('click', () => {
+        nav.classList.toggle('hidden');
+      });
+    }
+
+    // ---------------------------------------------------------------
+    // PROJECT DATA - the single source of truth for the postcard grid
+    // and the detail overlay. Add a new project by adding an object
+    // here; no other markup changes are needed.
+    // ---------------------------------------------------------------
+    const PROJECTS = [
+      {
+        id: 'wild-bill-pickles',
+        title: `Wild Bill Pickles`,
+        organization: `Wild Bill Pickles, Student Business Incubator`,
+        category: 'entre',
+        logo: 'images/wbp-boot.png',
+        documentUrl: '#wild-bill',
+        documentLabel: `See Full Deck Spotlight`,
+        description: `Revitalized a small food business nearly 10 years after closure through a 10-week entrepreneurship program, rebuilding the business model, brand positioning, and go-to-market strategy.`,
+        role: `Business Developer`,
+        date: `Jan 2025 – Aug 2026`,
+        location: `Bentonville, AR`,
+        outcome: `Reworked local sourcing, pricing, and production strategy — adapting the recipe and ingredients to create a viable path toward relaunch and sustainable growth.`,
+        skills: ['CPG', 'Entrepreneurship', 'Unit Economics', 'Sourcing Strategy']
+      },
+      {
+        id: 'experience-fayetteville',
+        title: `Experience Fayetteville`,
+        organization: `McMillon Innovation Studio`,
+        category: 'orgs',
+        logo: '',
+        documentUrl: '',
+        documentLabel: `View Project`,
+        description: `Leading a multidisciplinary team of 4 researching the feasibility of a multisport complex and its potential impact on Fayetteville's sports tourism economy.`,
+        role: `Project Manager`,
+        date: `Aug 2026 – Present`,
+        location: `Fayetteville, AR`,
+        outcome: `Directed research across demand, land requirements, development costs, profitability, growth models, and funding — applying human-centered design and stakeholder research alongside traditional market research.`,
+        skills: ['Project Management', 'Market Research', 'Feasibility Analysis']
+      },
+      {
+        id: 'nestle-digiorno',
+        title: `Nestlé Design Team — DiGiorno`,
+        organization: `McMillon Innovation Studio`,
+        category: 'projects',
+        logo: '',
+        documentUrl: '',
+        documentLabel: `View Project`,
+        description: `Developing solutions to streamline in-store operations for DiGiorno pizza stocking through customer discovery, interviews, and prototype testing.`,
+        role: `Design Team Member`,
+        date: `Jan 2025 – Present`,
+        location: `Fayetteville, AR`,
+        outcome: `Conducted repeated prototype testing in real retail contexts, refining solutions for usability and efficiency with a cross-disciplinary team.`,
+        skills: ['Design Thinking', 'Customer Discovery', 'Prototyping']
+      },
+      {
+        id: 'dublin-recruiting',
+        title: `Tech Recruiting Pipeline`,
+        organization: `Eirkoo Recruitment, Dublin`,
+        category: 'projects',
+        logo: '',
+        documentUrl: '',
+        documentLabel: `View Project`,
+        description: `Processed and formatted 100+ résumés daily, supporting efficient candidate screening and placement across active searches.`,
+        role: `Recruitment Intern`,
+        date: `Feb 2023 – Apr 2023`,
+        location: `Dublin, Ireland`,
+        outcome: `Conducted outreach to 30+ prospective clients and supported candidate placement, interview coordination, and day-to-day recruiting operations.`,
+        skills: ['Recruiting Ops', 'Cross-Border Talent', 'Process Design']
+      },
+      {
+        // TODO(katie): verify this project's real details - dates/specifics predate the
+        // resume-sourced content pass and haven't been confirmed against real records.
+        id: 'iberian-expansion-analysis',
+        title: `Iberian Expansion Analysis`,
+        organization: `Honors Research Project`,
+        category: 'projects',
+        logo: '',
+        documentUrl: '',
+        documentLabel: `View Report`,
+        description: `Formulated a European market entry playbook evaluating consumer recycling behavior, local distributor margins, and tariff frameworks in Spain & Portugal.`,
+        role: `Lead Researcher`,
+        date: `2024`,
+        location: `Spain & Portugal (research)`,
+        outcome: `Delivered an honors-track market entry analysis translating cross-border regulatory and consumer-behavior research into a distributor-margin model.`,
+        skills: ['Market Entry Strategy', 'International Trade', 'Research']
+      }
+    ];
+
+    const CATEGORY_LABELS = { projects: 'Project', orgs: 'Organization', entre: 'Entrepreneurship' };
+    const ROTATIONS = ['-rotate-1 sm:-rotate-2', 'rotate-1 sm:rotate-2', '-rotate-1 sm:-rotate-3', 'rotate-1 sm:rotate-3'];
+
+    function postcardTemplate(project, index) {
+      const rotation = ROTATIONS[index % ROTATIONS.length];
+      const categoryLabel = CATEGORY_LABELS[project.category] || 'Project';
+      const identityBlock = project.logo
+        ? `<div class="aspect-[4/3] w-full flex items-center justify-center bg-wbp-navy p-5">
+             <img src="${project.logo}" alt="${project.title} logo" class="max-h-full max-w-[70%] object-contain"/>
+           </div>`
+        : `<div class="aspect-[4/3] w-full flex items-center justify-center bg-deep-navy p-4 text-center">
+             <span class="font-editorial text-lg font-black text-white leading-tight">${project.title}</span>
+           </div>`;
+      return `
+        <button type="button" class="wall-post-card group relative block w-full text-left bg-paper-card rounded-lg border border-[#DECDB8] shadow-wall-print overflow-hidden ${rotation} focus-visible:outline focus-visible:outline-2 focus-visible:outline-terracotta" data-project-id="${project.id}" data-category="${project.category}">
+          ${identityBlock}
+          <div class="p-3">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[9px] font-mono uppercase tracking-wider text-terracotta font-bold">${categoryLabel}</span>
+              <span class="text-[9px] font-mono text-ink-light">${project.date}</span>
+            </div>
+            <h3 class="font-editorial text-base font-bold text-ink leading-snug">${project.title}</h3>
+            <p class="text-[11px] text-ink-muted mt-1 leading-relaxed line-clamp-2">${project.description}</p>
+            <div class="mt-2 pt-2 border-t border-[#F0E6D8] flex items-center justify-between text-[9px] font-mono">
+              <span class="text-olive font-bold">${project.role}</span>
+              <span class="text-terracotta font-bold">Tap to open →</span>
+            </div>
+          </div>
+        </button>`;
+    }
+
+    function renderPostcards(data, containerEl) {
+      if (!containerEl) return;
+      containerEl.innerHTML = data.map((project, index) => postcardTemplate(project, index)).join('');
+    }
+
+    // ---------------------------------------------------------------
+    // Project detail overlay
+    // ---------------------------------------------------------------
+    const overlayEl = document.getElementById('project-overlay');
+
+    function openProjectDetail(id) {
+      const project = PROJECTS.find(p => p.id === id);
+      if (!project || !overlayEl) return;
+
+      document.getElementById('pd-category-badge').textContent = CATEGORY_LABELS[project.category] || 'Project';
+      document.getElementById('pd-title').textContent = project.title;
+      document.getElementById('pd-org').textContent = project.organization;
+      document.getElementById('pd-role').textContent = project.role;
+      document.getElementById('pd-date').textContent = project.date;
+      document.getElementById('pd-location').textContent = project.location;
+      document.getElementById('pd-description').textContent = project.description;
+      document.getElementById('pd-outcome').textContent = project.outcome;
+      document.getElementById('pd-skills').innerHTML = (project.skills || [])
+        .map(skill => `<span class="text-[9px] font-mono px-2 py-0.5 rounded bg-paper-warm border border-[#DECDB8] text-ink-muted">${skill}</span>`)
+        .join('');
+
+      const actionEl = document.getElementById('pd-action');
+      if (project.documentUrl) {
+        actionEl.href = project.documentUrl;
+        document.getElementById('pd-action-label').textContent = project.documentLabel || 'View Project';
+        if (project.documentUrl.startsWith('#') && !project.documentUrl.startsWith('#/project/')) {
+          actionEl.removeAttribute('target');
+        } else {
+          actionEl.setAttribute('target', '_blank');
+        }
+        actionEl.classList.remove('hidden');
+      } else {
+        actionEl.classList.add('hidden');
+      }
+
+      overlayEl.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      history.pushState(null, '', '#/project/' + id);
+    }
+
+    function closeProjectDetail() {
+      if (!overlayEl || overlayEl.classList.contains('hidden')) return;
+      overlayEl.classList.add('hidden');
+      document.body.style.overflow = '';
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+
+    function handleHashRoute() {
+      const match = location.hash.match(/^#\/project\/([\w-]+)/);
+      if (match) {
+        openProjectDetail(match[1]);
+      }
+    }
+
+    if (overlayEl) {
+      document.getElementById('pd-close').addEventListener('click', closeProjectDetail);
+      document.getElementById('pd-backdrop').addEventListener('click', closeProjectDetail);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !overlayEl.classList.contains('hidden')) {
+          closeProjectDetail();
+        }
+      });
+      document.getElementById('pd-action').addEventListener('click', function () {
+        const href = this.getAttribute('href') || '';
+        if (href.startsWith('#') && !href.startsWith('#/project/')) {
+          closeProjectDetail();
+        }
+      });
+    }
+
+    window.addEventListener('hashchange', handleHashRoute);
+
+    // ---------------------------------------------------------------
+    // Category filter - shared by any grid of [data-category] cards
+    // ---------------------------------------------------------------
+    function wireCategoryFilter(filterButtonSelector, cardSelector) {
+      const filterButtons = document.querySelectorAll(filterButtonSelector);
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const selectedFilter = button.getAttribute('data-filter');
+
+          filterButtons.forEach(btn => {
+            btn.classList.remove('bg-ink', 'text-paper');
+            btn.classList.add('bg-paper-card', 'text-ink-muted');
+          });
+          button.classList.add('bg-ink', 'text-paper');
+          button.classList.remove('bg-paper-card', 'text-ink-muted');
+
+          document.querySelectorAll(cardSelector).forEach(card => {
+            const cardCategories = card.getAttribute('data-category') || '';
+            if (selectedFilter === 'all' || cardCategories.includes(selectedFilter)) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // ---------------------------------------------------------------
+    // Wire everything up
+    // ---------------------------------------------------------------
+    const postcardCollectionEl = document.getElementById('postcard-collection');
+    renderPostcards(PROJECTS, postcardCollectionEl);
+
+    if (postcardCollectionEl) {
+      postcardCollectionEl.addEventListener('click', (e) => {
+        const card = e.target.closest('[data-project-id]');
+        if (card) openProjectDetail(card.getAttribute('data-project-id'));
+      });
+    }
+
+    wireCategoryFilter('.carousel-filter', '#postcard-collection [data-category]');
+    handleHashRoute();
+</script>
+</body></html>
