@@ -3,7 +3,9 @@ const grid = document.getElementById('project-carousel'); // the "stage": holds 
 const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 grid.innerHTML = PROJECTS.map((project, index) => {
   const media = project.image ? `<img class="cover" src="${project.image}" alt="" loading="lazy">` : project.logo ? `<img class="logo" src="${project.logo}" alt="" loading="lazy">` : `<span class="card-number" aria-hidden="true">0${index + 1}</span>`;
-  return `<button class="project-card${project.theme ? ' ' + project.theme : ''}" data-open-project="${project.id}" data-category="${project.category}" style="--cover:${project.color}"><span class="card-media">${media}</span><span class="card-top"><span class="identity"><small>${escapeHTML(project.role)}</small></span></span><span class="card-bottom"><span><span class="card-title">${escapeHTML(project.title)}</span><span class="card-tagline">${escapeHTML(project.tagline)}</span></span><span class="arrow" aria-hidden="true">↗</span></span></button>`;
+  const cardTop = project.role ? `<span class="card-top"><span class="identity"><small>${escapeHTML(project.role)}</small></span></span>` : '';
+  const cardTagline = project.tagline ? `<span class="card-tagline">${escapeHTML(project.tagline)}</span>` : '';
+  return `<button class="project-card${project.theme ? ' ' + project.theme : ''}" data-open-project="${project.id}" data-category="${project.category}" style="--cover:${project.color}"><span class="card-media">${media}</span>${cardTop}<span class="card-bottom"><span><span class="card-title">${escapeHTML(project.title)}</span>${cardTagline}</span><span class="arrow" aria-hidden="true">↗</span></span></button>`;
 }).join('');
 
 // Selected work: 3D cover-flow wheel. `activeIndex` is a position within the currently-filtered
@@ -153,8 +155,18 @@ function showProject(id) {
   const project = PROJECTS.find(item => item.id === id);
   if (!project) return;
   if (!dialog.open) previousFocus = document.activeElement;
-  for (const [key, value] of Object.entries({category: labels[project.category], title: project.title, org: project.organization, description: project.description, outcome: project.outcome})) document.getElementById(`detail-${key}`).textContent = value;
-  document.getElementById('detail-meta').innerHTML = [project.role, project.date, project.location].filter(Boolean).map(value => `<span>${escapeHTML(value)}</span>`).join('');
+  // A project carrying `highlights` renders as a résumé entry -- no category eyebrow or
+  // organization line, its own title/subtitle, and bullets in place of the description prose.
+  const resume = Boolean(project.highlights && project.highlights.length);
+  for (const [key, value] of Object.entries({category: labels[project.category], title: project.detailTitle || project.title, org: project.organization, description: project.description, outcome: project.outcome})) document.getElementById(`detail-${key}`).textContent = value;
+  document.getElementById('detail-org').hidden = resume || !project.organization;
+  const metaBox = document.getElementById('detail-meta');
+  metaBox.classList.toggle('resume', resume);
+  metaBox.innerHTML = (resume ? [project.detailSubtitle, project.date] : [project.role, project.date, project.location]).filter(Boolean).map(value => `<span>${escapeHTML(value)}</span>`).join('');
+  const highlights = document.getElementById('detail-highlights');
+  highlights.hidden = !resume;
+  highlights.innerHTML = resume ? project.highlights.map(item => `<li>${escapeHTML(item)}</li>`).join('') : '';
+  document.getElementById('detail-skills-label').hidden = !resume;
   document.getElementById('detail-skills').innerHTML = project.skills.map(value => `<span>${escapeHTML(value)}</span>`).join('');
   const action = document.getElementById('detail-action'); action.hidden = !project.documentUrl;
   if (project.documentUrl) action.href = project.documentUrl;
@@ -166,11 +178,11 @@ function showProject(id) {
   dialog.classList.toggle('wbp', themed);
   document.getElementById('detail-bar').hidden = !themed;
   document.getElementById('detail-hero').hidden = !themed;
-  document.getElementById('detail-category').hidden = themed;
+  document.getElementById('detail-category').hidden = themed || resume;
   document.getElementById('detail-bar-label').textContent = labels[project.category];
   const story = document.getElementById('detail-story');
   story.hidden = !project.story;
-  document.getElementById('detail-generic').hidden = Boolean(project.story);
+  document.getElementById('detail-generic').hidden = Boolean(project.story) || resume;
   story.innerHTML = (project.story || []).map(part => `<div class="story-row"><p>${escapeHTML(part.text)}</p><div class="story-photos count-${part.photos.length}">${part.photos.map(([src, alt]) => `<img src="${src}" alt="${escapeHTML(alt)}" loading="lazy">`).join('')}</div></div>`).join('');
   action.textContent = `${project.documentLabel} ↗`;
   if (!dialog.open) dialog.showModal();
@@ -185,9 +197,12 @@ document.addEventListener('click', event => {
     if (expandedProjectId) return; // a case study is already open; ignore further clicks on the wheel
     if (button.dataset.rel !== '0') { goTo(visibleCards.indexOf(button)); return; } // side card -> recenter
     const id = button.dataset.openProject;
-    // Most cards morph into their in-page case study; a project marked detailView:'dialog' in
-    // projects.js instead opens the same dialog the journey/spotlight links use.
-    if (!PROJECTS.some(item => item.id === id && item.detailView === 'dialog')) { expandProject(id); return; }
+    const project = PROJECTS.find(item => item.id === id);
+    // Most cards morph into their in-page case study. A project can opt out via projects.js:
+    // `cardLink` opens that document in a new tab, `detailView:'dialog'` opens the same dialog
+    // the journey/spotlight links use.
+    if (project && project.cardLink) { window.open(project.cardLink, '_blank', 'noopener,noreferrer'); return; }
+    if (!(project && project.detailView === 'dialog')) { expandProject(id); return; }
   }
   returnHash = location.hash || '#work-carousel';
   location.hash = `/project/${button.dataset.openProject}`;
@@ -203,10 +218,6 @@ dialog.addEventListener('click', event => { if (event.target === dialog) { const
 dialog.addEventListener('close', () => { videoBox.innerHTML = ''; document.body.style.overflow = ''; if (location.hash.startsWith('#/project/')) history.replaceState(null, '', location.pathname + location.search + returnHash); if (previousFocus instanceof HTMLElement) previousFocus.focus({preventScroll:true}); });
 document.getElementById('detail-action').addEventListener('click', () => dialog.close());
 window.addEventListener('hashchange', syncRoute); syncRoute();
-const navLinks = [...document.querySelectorAll('.dock a')];
-const sectionLinks = {'hero':'#hero','work-carousel':'#work-carousel','wild-bill':'#work-carousel','story':'#story','connect':'#connect','resume':'#connect'};
-const observer = new IntersectionObserver(entries => { const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0]; if (!visible) return; navLinks.forEach(link => { const active = link.getAttribute('href') === sectionLinks[visible.target.id]; link.classList.toggle('active', active); if (active) link.setAttribute('aria-current','location'); else link.removeAttribute('aria-current'); }); }, {rootMargin:'-15% 0px -45% 0px',threshold:0});
-Object.keys(sectionLinks).forEach(id => observer.observe(document.getElementById(id)));
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // Cover-flow wheel: drag/swipe (mouse + touch, via Pointer Events) and mouse-wheel navigation.
